@@ -382,21 +382,28 @@
         
         // Close all sections first
         document.querySelectorAll('.blind-content').forEach(section => {
-          if (!section.classList.contains('collapsed')) {
-            section.classList.add('collapsed');
-            // Reset all buttons to center with larger size
-            const parentSection = section.closest('section');
-            const btn = parentSection.querySelector('.toggle-button');
-            if (btn) {
-              btn.style.top = '50%';
-              btn.style.fontSize = '56px';
-            }
-          }
-        });
+    const parentSection = section.closest('section');
+
+    if (!section.classList.contains('collapsed')) {
+        section.classList.add('collapsed');
+
+        // shrink padding when collapsed
+        parentSection.classList.add('section-collapsed');
+
+        const btn = parentSection.querySelector('.toggle-button');
+        if (btn) {
+            btn.style.top = '50%';
+            btn.style.fontSize = '56px';
+        }
+    }
+});
         
         // If the clicked section was closed, open it
         if (isCurrentlyCollapsed) {
           content.classList.remove('collapsed');
+
+// restore full padding when open
+section.classList.remove('section-collapsed');
           
           // Find the button that controls this content
           const section = content.closest('section');

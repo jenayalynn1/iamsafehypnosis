@@ -1767,34 +1767,19 @@ const applicationData = {
 // ----------------------------------------------------
 fetch("https://script.google.com/macros/s/AKfycbxYdhYxcwdabNaJ46LTGvTavR0K6xyTSZCtoBPqGICkBa6kxOfmNo8rSEQS_LCrsppwqg/exec", {
   method: "POST",
+  mode: "no-cors",
   headers: {
-    "Content-Type": "application/json"
+    // Use a "simple" content type so the browser doesn't do a CORS preflight
+    "Content-Type": "text/plain;charset=utf-8"
   },
   body: JSON.stringify(applicationData)
 })
-  .then(response => response.json())
-  .then(result => {
-    console.log("Google Script response:", result);
+  .then(() => {
+    console.log("Posted to Google Script (no-cors, response not readable).");
   })
   .catch(error => {
     console.error("Error posting to Google Script:", error);
   });
-
-let result = null;
-
-
-try {
-if (window.dataSdk && typeof window.dataSdk.create === 'function') {
-result = await window.dataSdk.create(applicationData);
-} else {
-console.warn('dataSdk is not available; skipping remote submission.');
-result = { isOk: true, skipped: true };
-}
-} catch (err) {
-console.error('Error submitting application', err);
-result = { isOk: false };
-}
-
 
 submitBtn.disabled = false;
 submitBtn.innerHTML = originalText;

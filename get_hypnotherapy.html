@@ -849,27 +849,22 @@ let currentRecordCount = 0;
 let currentPage = 1;
 const totalPages = 6;
 
-
 const selections = {
-frameworkUnderstanding: null,
-supportSeeking: null,
-memoriesBefore: null,
-boundaries: new Set(),
-faultBeliefs: null,
-privateSpace: null,
-willingness: null,
-readiness: null,
-commitment: null,
-moneyCommunication: null,
-affordabilityPreference: null,
-referred: null,
-pronouns: null,
-trustedPerson: null,
-commitmentChoice: null,
-moneyConversationPreference: null,
-affordabilityPreference: null
+  frameworkUnderstanding: null,
+  supportSeeking: null,
+  memoriesBefore: null,
+  boundaries: new Set(),
+  faultBeliefs: null,
+  privateSpace: null,
+  willingness: null,
+  readiness: null,
+  commitment: null,
+  moneyCommunication: null,
+  affordabilityPreference: null,
+  referred: null,
+  pronouns: null,
+  trustedPerson: null
 };
-
 
 const quizAnswers = {
 q1: null, q2: null, q3: null, q4: null, q5: null, q6: null,
@@ -1748,8 +1743,8 @@ const applicationData = {
   referred: selections.referred,
   referrer_name: selections.referred === 'yes' ? document.getElementById('referrer-name').value : '',
   // 🔻 Finance / investment questions
-  commitment_choice: selections.commitmentChoice,
-  money_conversation_preference: selections.moneyConversationPreference,
+  commitment_choice: selections.commitment,
+  money_conversation_preference: selections.moneyCommunication,
   affordability_preference: selections.affordabilityPreference,
   // 🔻 Support + history
   support_seeking: selections.supportSeeking,

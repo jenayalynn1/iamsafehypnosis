@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    .service-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .cta-button {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .cta-button:active {
+      transform: scale(0.98);
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="app-container" class="w-full h-full overflow-auto">
+   <div class="min-h-full py-16 px-6">
+    <div class="max-w-6xl mx-auto"><!-- Header -->
+     <div class="text-center mb-16">
+      <h1 id="page-title" class="mb-4">Core Offerings</h1>
+      <p id="page-subtitle" class="text-xl">Supporting capacity and steadiness through life's demands</p>
+     </div><!-- Services Grid -->
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"><!-- Service 1 -->
+      <div class="service-card rounded-2xl p-8">
+       <div class="text-5xl mb-4">
+        🧭
+       </div>
+       <h2 id="service-1-title" class="mb-3">Preparation</h2>
+       <p id="service-1-description">Supporting steadiness before something demanding. Nervous system readiness for anticipated stress, upcoming events, thresholds, conversations, or transitions.</p>
+      </div><!-- Service 2 -->
+      <div class="service-card rounded-2xl p-8">
+       <div class="text-5xl mb-4">
+        🌱
+       </div>
+       <h2 id="service-2-title" class="mb-3">Integration</h2>
+       <p id="service-2-description">Supporting capacity after something overwhelming. Stabilization and meaning-making after trauma, shock, grief, rupture, or identity disruption.</p>
+      </div><!-- Service 3 -->
+      <div class="service-card rounded-2xl p-8">
+       <div class="text-5xl mb-4">
+        🪞
+       </div>
+       <h2 id="service-3-title" class="mb-3">Self-Orientation</h2>
+       <p id="service-3-description">Supporting relationship with the Self. Internal mapping and self-recognition—identity, inner signals, values, patterns, and agency.</p>
+      </div><!-- Service 4 -->
+      <div class="service-card rounded-2xl p-8">
+       <div class="text-5xl mb-4">
+        🛡️
+       </div>
+       <h2 id="service-4-title" class="mb-3">Boundary &amp; Capacity Building</h2>
+       <p id="service-4-description">Supporting sustainable engagement with others. Strengthening limits, choice, and self-trust—capacity management for overgiving, enmeshment, or burnout.</p>
+      </div><!-- Service 5 -->
+      <div class="service-card rounded-2xl p-8">
+       <div class="text-5xl mb-4">
+        🌊
+       </div>
+       <h2 id="service-5-title" class="mb-3">Transition &amp; Threshold Holding</h2>
+       <p id="service-5-description">Supporting presence during change. Steadiness through role changes, life phases, and uncertainty—holding space during endings and in-between states.</p>
+      </div>
+     </div><!-- CTA -->
+     <div class="text-center"><button id="cta-button" class="cta-button rounded-full px-10 py-4 text-lg font-semibold"> Begin Here </button>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+    const defaultConfig = {
+      background_color: "#eee3d3",
+      card_color: "#ffffff",
+      text_color: "#404545",
+      primary_action_color: "#c56c35",
+      secondary_text_color: "#404545",
+      font_family: "system-ui",
+      font_size: 16,
+      page_title: "Core Offerings",
+      page_subtitle: "Supporting capacity and steadiness through life's demands",
+      service_1_title: "Anticipated Stress",
+      service_1_description: "Supporting steadiness before something demanding. Nervous system readiness for anticipated stress, upcoming events, thresholds, conversations, or transitions.",
+      service_2_title: "Integration",
+      service_2_description: "Supporting capacity restoration after something overwhelming. Stabilization and growth after damaging experiences.",
+      service_3_title: "Self-Orientation",
+      service_3_description: "Supporting relationship with the Self. Internal mapping and self-recognition—identity, inner signals, values, patterns, and agency.",
+      service_4_title: "Boundary & Capacity Building",
+      service_4_description: "Supporting sustainable engagement with others. Strengthening limits, choice, and self-trust—capacity management for overgiving, enmeshment, or burnout.",
+      service_5_title: "Transition & Threshold Keeping",
+      service_5_description: "Supporting presence during change. Steadiness through role changes, life phases, and uncertainty—holding space during endings and in-between states.",
+      cta_button_text: "Begin Here"
+    };
+
+    async function onConfigChange(config) {
+      const baseFontStack = 'system-ui, -apple-system, sans-serif';
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseSize = config.font_size || defaultConfig.font_size;
+      
+      // Apply background color
+      const appContainer = document.getElementById('app-container');
+      appContainer.style.backgroundColor = config.background_color || defaultConfig.background_color;
+      
+      // Apply text colors
+      const pageTitle = document.getElementById('page-title');
+      pageTitle.style.color = config.text_color || defaultConfig.text_color;
+      pageTitle.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      pageTitle.style.fontSize = `${baseSize * 2.5}px`;
+      pageTitle.style.fontWeight = '700';
+      pageTitle.textContent = config.page_title || defaultConfig.page_title;
+      
+      const pageSubtitle = document.getElementById('page-subtitle');
+      pageSubtitle.style.color = config.secondary_text_color || defaultConfig.secondary_text_color;
+      pageSubtitle.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      pageSubtitle.style.fontSize = `${baseSize * 1.25}px`;
+      pageSubtitle.textContent = config.page_subtitle || defaultConfig.page_subtitle;
+      
+      // Apply card styles and content
+      const serviceCards = document.querySelectorAll('.service-card');
+      serviceCards.forEach(card => {
+        card.style.backgroundColor = config.card_color || defaultConfig.card_color;
+        card.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+      });
+      
+      // Service 1
+      const service1Title = document.getElementById('service-1-title');
+      service1Title.style.color = config.text_color || defaultConfig.text_color;
+      service1Title.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      service1Title.style.fontSize = `${baseSize * 1.5}px`;
+      service1Title.style.fontWeight = '600';
+      service1Title.textContent = config.service_1_title || defaultConfig.service_1_title;
+      
+      const service1Desc = document.getElementById('service-1-description');
+      service1Desc.style.color = config.secondary_text_color || defaultConfig.secondary_text_color;
+      service1Desc.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      service1Desc.style.fontSize = `${baseSize}px`;
+      service1Desc.style.lineHeight = '1.6';
+      service1Desc.textContent = config.service_1_description || defaultConfig.service_1_description;
+      
+      // Service 2
+      const service2Title = document.getElementById('service-2-title');
+      service2Title.style.color = config.text_color || defaultConfig.text_color;
+      service2Title.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      service2Title.style.fontSize = `${baseSize * 1.5}px`;
+      service2Title.style.fontWeight = '600';
+      service2Title.textContent = config.service_2_title || defaultConfig.service_2_title;
+      
+      const service2Desc = document.getElementById('service-2-description');
+      service2Desc.style.color = config.secondary_text_color || defaultConfig.secondary_text_color;
+      service2Desc.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      service2Desc.style.fontSize = `${baseSize}px`;
+      service2Desc.style.lineHeight = '1.6';
+      service2Desc.textContent = config.service_2_description || defaultConfig.service_2_description;
+      
+      // Service 3
+      const service3Title = document.getElementById('service-3-title');
+      service3Title.style.color = config.text_color || defaultConfig.text_color;
+      service3Title.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      service3Title.style.fontSize = `${baseSize * 1.5}px`;
+      service3Title.style.fontWeight = '600';
+      service3Title.textContent = config.service_3_title || defaultConfig.service_3_title;
+      
+      const service3Desc = document.getElementById('service-3-description');
+      service3Desc.style.color = config.secondary_text_color || defaultConfig.secondary_text_color;
+      service3Desc.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      service3Desc.style.fontSize = `${baseSize}px`;
+      service3Desc.style.lineHeight = '1.6';
+      service3Desc.textContent = config.service_3_description || defaultConfig.service_3_description;
+      
+      // Service 4
+      const service4Title = document.getElementById('service-4-title');
+      service4Title.style.color = config.text_color || defaultConfig.text_color;
+      service4Title.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      service4Title.style.fontSize = `${baseSize * 1.5}px`;
+      service4Title.style.fontWeight = '600';
+      service4Title.textContent = config.service_4_title || defaultConfig.service_4_title;
+      
+      const service4Desc = document.getElementById('service-4-description');
+      service4Desc.style.color = config.secondary_text_color || defaultConfig.secondary_text_color;
+      service4Desc.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      service4Desc.style.fontSize = `${baseSize}px`;
+      service4Desc.style.lineHeight = '1.6';
+      service4Desc.textContent = config.service_4_description || defaultConfig.service_4_description;
+      
+      // Service 5
+      const service5Title = document.getElementById('service-5-title');
+      service5Title.style.color = config.text_color || defaultConfig.text_color;
+      service5Title.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      service5Title.style.fontSize = `${baseSize * 1.5}px`;
+      service5Title.style.fontWeight = '600';
+      service5Title.textContent = config.service_5_title || defaultConfig.service_5_title;
+      
+      const service5Desc = document.getElementById('service-5-description');
+      service5Desc.style.color = config.secondary_text_color || defaultConfig.secondary_text_color;
+      service5Desc.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      service5Desc.style.fontSize = `${baseSize}px`;
+      service5Desc.style.lineHeight = '1.6';
+      service5Desc.textContent = config.service_5_description || defaultConfig.service_5_description;
+      
+      // CTA Button
+      const ctaButton = document.getElementById('cta-button');
+      ctaButton.style.backgroundColor = config.primary_action_color || defaultConfig.primary_action_color;
+      ctaButton.style.color = config.background_color || defaultConfig.background_color;
+      ctaButton.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      ctaButton.style.fontSize = `${baseSize * 1.125}px`;
+      ctaButton.textContent = config.cta_button_text || defaultConfig.cta_button_text;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.card_color || defaultConfig.card_color,
+            set: (value) => {
+              config.card_color = value;
+              window.elementSdk.setConfig({ card_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => {
+              config.primary_action_color = value;
+              window.elementSdk.setConfig({ primary_action_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_text_color || defaultConfig.secondary_text_color,
+            set: (value) => {
+              config.secondary_text_color = value;
+              window.elementSdk.setConfig({ secondary_text_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["page_title", config.page_title || defaultConfig.page_title],
+        ["page_subtitle", config.page_subtitle || defaultConfig.page_subtitle],
+        ["service_1_title", config.service_1_title || defaultConfig.service_1_title],
+        ["service_1_description", config.service_1_description || defaultConfig.service_1_description],
+        ["service_2_title", config.service_2_title || defaultConfig.service_2_title],
+        ["service_2_description", config.service_2_description || defaultConfig.service_2_description],
+        ["service_3_title", config.service_3_title || defaultConfig.service_3_title],
+        ["service_3_description", config.service_3_description || defaultConfig.service_3_description],
+        ["service_4_title", config.service_4_title || defaultConfig.service_4_title],
+        ["service_4_description", config.service_4_description || defaultConfig.service_4_description],
+        ["service_5_title", config.service_5_title || defaultConfig.service_5_title],
+        ["service_5_description", config.service_5_description || defaultConfig.service_5_description],
+        ["cta_button_text", config.cta_button_text || defaultConfig.cta_button_text]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9aeab612d685afbc',t:'MTc2NTg1MTcyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -453,8 +453,8 @@
 
     <div id="membership-content" class="max-w-6xl mx-auto blind-content collapsed" style="position: relative; z-index: 2;">
       <div class="text-center mb-10">
-        <a href="/core-offerings.html"
-           id="core-offerings-button"
+        <a href="/core_offerings.html"
+           id="core_offerings-button"
            class="btn-primary px-10 py-4 text-lg font-normal rounded-full"
            style="background-color: #E7CBA4; color: #3C3A37; letter-spacing: 0.02em;"
            onclick="openCoreOfferingsPopup(event)">
@@ -729,11 +729,11 @@
 </dialog>
 
 <!-- CORE OFFERINGS DIALOG MODAL (MOVED OUT OF SCRIPT — THIS IS CRITICAL) -->
-<dialog id="core-offerings-modal"
+<dialog id="core_offerings-modal"
         style="border: none; border-radius: 16px; padding: 0; max-width: 1000px; width: 92%;
                background: #FFFFFF; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
   <div style="position: relative; width: 100%;">
-    <button id="close-core-offerings-modal"
+    <button id="close-core_offerings-modal"
             style="position: absolute; top: 16px; right: 16px; background: #E7CBA4; color: #3C3A37;
                    border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
                    font-size: 24px; font-weight: bold; z-index: 10000; display: flex; align-items: center;
@@ -745,7 +745,7 @@
 
     <div style="width: 100%; height: 650px; overflow: auto; padding: 15px;">
       <a href="core_offerings.html"
-   id="core-offerings-button"
+   id="core_offerings-button"
    class="btn-primary px-10 py-4 text-lg font-normal rounded-full"
    style="background-color: #E7CBA4; color: #3C3A37; letter-spacing: 0.02em;"
    onclick="openCoreOfferingsPopup(event)">
@@ -858,12 +858,12 @@
 
   function openCoreOfferingsPopup(event) {
     event.preventDefault();
-    const dialog = document.getElementById('core-offerings-modal');
+    const dialog = document.getElementById('core_offerings-modal');
     if (dialog) dialog.showModal();
   }
 
   function closeCoreOfferingsPopup() {
-    const dialog = document.getElementById('core-offerings-modal');
+    const dialog = document.getElementById('core_offerings-modal');
     if (dialog) dialog.close();
   }
 
@@ -889,8 +889,8 @@
       });
     }
 
-    const closeCoreBtn = document.getElementById('close-core-offerings-modal');
-    const coreDialog = document.getElementById('core-offerings-modal');
+    const closeCoreBtn = document.getElementById('close-core_offerings-modal');
+    const coreDialog = document.getElementById('core_offerings-modal');
 
     if (closeCoreBtn) {
       closeCoreBtn.addEventListener('click', closeCoreOfferingsPopup);

@@ -11,6 +11,12 @@
       box-sizing: border-box;
     }
     
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #eee3d3;
+    }
+    
     .service-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -45,35 +51,35 @@
       <p id="page-subtitle" class="text-xl">Supporting capacity and steadiness through life's demands</p>
      </div><!-- Services Grid -->
      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"><!-- Service 1 -->
-      <div class="service-card rounded-2xl p-8">
+      <div class="service-card rounded-2xl p-8" style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
        <div class="text-5xl mb-4">
         🧭
        </div>
        <h2 id="service-1-title" class="mb-3">Preparation</h2>
        <p id="service-1-description">Supporting steadiness before something demanding. Nervous system readiness for anticipated stress, upcoming events, thresholds, conversations, or transitions.</p>
       </div><!-- Service 2 -->
-      <div class="service-card rounded-2xl p-8">
+      <div class="service-card rounded-2xl p-8" style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
        <div class="text-5xl mb-4">
         🌱
        </div>
        <h2 id="service-2-title" class="mb-3">Integration</h2>
        <p id="service-2-description">Supporting capacity after something overwhelming. Stabilization and meaning-making after trauma, shock, grief, rupture, or identity disruption.</p>
       </div><!-- Service 3 -->
-      <div class="service-card rounded-2xl p-8">
+      <div class="service-card rounded-2xl p-8" style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
        <div class="text-5xl mb-4">
         🪞
        </div>
        <h2 id="service-3-title" class="mb-3">Self-Orientation</h2>
        <p id="service-3-description">Supporting relationship with the Self. Internal mapping and self-recognition—identity, inner signals, values, patterns, and agency.</p>
       </div><!-- Service 4 -->
-      <div class="service-card rounded-2xl p-8">
+      <div class="service-card rounded-2xl p-8" style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
        <div class="text-5xl mb-4">
         🛡️
        </div>
        <h2 id="service-4-title" class="mb-3">Boundary &amp; Capacity Building</h2>
        <p id="service-4-description">Supporting sustainable engagement with others. Strengthening limits, choice, and self-trust—capacity management for overgiving, enmeshment, or burnout.</p>
       </div><!-- Service 5 -->
-      <div class="service-card rounded-2xl p-8">
+      <div class="service-card rounded-2xl p-8" style="background-color: #ffffff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);">
        <div class="text-5xl mb-4">
         🌊
        </div>
@@ -117,7 +123,12 @@
       
       // Apply background color
       const appContainer = document.getElementById('app-container');
+      const htmlElement = document.documentElement;
+      const bodyElement = document.body;
+      
       appContainer.style.backgroundColor = config.background_color || defaultConfig.background_color;
+      htmlElement.style.backgroundColor = config.background_color || defaultConfig.background_color;
+      bodyElement.style.backgroundColor = config.background_color || defaultConfig.background_color;
       
       // Apply text colors
       const pageTitle = document.getElementById('page-title');
@@ -136,7 +147,7 @@
       // Apply card styles and content
       const serviceCards = document.querySelectorAll('.service-card');
       serviceCards.forEach(card => {
-        card.style.backgroundColor = config.card_color || defaultConfig.card_color;
+        card.style.backgroundColor = '#ffffff';
         card.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
       });
       
@@ -308,5 +319,5 @@
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9aeab612d685afbc',t:'MTc2NTg1MTcyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9aead61d54dc4615',t:'MTc2NTg1MzA0MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
